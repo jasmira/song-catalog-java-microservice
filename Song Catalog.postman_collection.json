@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "edb5dcf0-2b64-465b-aec9-ea1ca89b4dfa",
+		"name": "Song Catalog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8177652"
+	},
+	"item": [
+		{
+			"name": "Get All Songs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Song By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/song/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"song",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter All Songs without any params (used for clearing of table)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songs/filter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songs",
+						"filter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter songs based on Artist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songs/filter?artist=Artist 99",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songs",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "artist",
+							"value": "Artist 99"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter songs based on Release Year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songs/filter?year=2024",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songs",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2024"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter songs based on both Artist and Release Year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songs/filter?artist=Artist 99&year=1951",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songs",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "artist",
+							"value": "Artist 99"
+						},
+						{
+							"key": "year",
+							"value": "1951"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter songs for Artist and Release Year not found in DB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songs/filter?artist=Jasmira&year=2025",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songs",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "artist",
+							"value": "Jasmira"
+						},
+						{
+							"key": "year",
+							"value": "2025"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new Song",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"It's My Life\",\r\n    \"artist\": \"Jasmira\",\r\n    \"album\": \"Jazz Rocks\",\r\n    \"releaseYear\": 2025,\r\n    \"length\": \"4:56\",\r\n    \"genre\": \"Pop\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/song",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"song"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Songs sorted by Release Year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songs?sortByReleaseYear=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songs"
+					],
+					"query": [
+						{
+							"key": "sortByReleaseYear",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Songs sorted by Song Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/songs?sortBySongName=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"songs"
+					],
+					"query": [
+						{
+							"key": "sortBySongName",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
